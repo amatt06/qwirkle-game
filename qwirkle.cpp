@@ -1,4 +1,6 @@
-#include "LinkedList.h"
+#include "Hand.h"
+#include "Tile.h"
+#include "Board.h"
 
 #include <iostream>
 #include <fstream>
@@ -15,10 +17,12 @@ bool isValidChoice(int userSelection);
 
 int main(void)
 {
+
     // No selection has been made yet
     int userSelection = 0;
 
     printMainMenu();
+
     // Repeat until valid selection is made
     do
     {
@@ -28,7 +32,7 @@ int main(void)
 
     mainMenuOption(userSelection);
 
-    LinkedList *list = new LinkedList();
+    Hand *list = new Hand();
     delete list;
 
     return EXIT_SUCCESS;
@@ -67,19 +71,29 @@ void mainMenuOption(int userSelection)
 }
 void createNewGame()
 {
-    // TODO
+
     std::cout << "Starting a new game." << std::endl;
 
     std::string username;
     std::cout << "Select your username" << std::endl;
     std::cin >> username;
     std::cout << "Welcome, " << username << std::endl;
+    std::cout << "Your tiles:" << std::endl;
+
+    // This will store all of the player's tiles
+    Hand *playerOneHand = new Hand();
+    if (playerOneHand != NULL)
+    {
+        playerOneHand->createInitialHand();
+        Node *handOfTiles = playerOneHand->getHeadOfList();
+        playerOneHand->printHand(handOfTiles);
+    }
 }
 
 void loadGame()
 {
     // TODO
-    std::cout << "Starting a new game." << std::endl;
+    std::cout << "Preparing to load game." << std::endl;
 
     std::string filename;
     std::cout << "Enter the filename of the game you wish to load:" << std::endl;

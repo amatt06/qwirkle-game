@@ -29,6 +29,8 @@ add_executable(
   ${PROJECT_TEST_NAME}
   Node.cpp
   Node_test.cpp
+  Tile.cpp
+  Tile_test.cpp
 )
 target_link_libraries(
   ${PROJECT_TEST_NAME}
