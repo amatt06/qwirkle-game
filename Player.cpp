@@ -32,4 +32,13 @@ int Player::getScore()
 
 std::string Player::getHand()
 {
+    std::string hand = "";
+    for (int i = 0; i < playerHand->getSize(); i++)
+    {
+        Tile *tile = playerHand->getTileAtIndex(i);
+        hand += tile->getColour() + std::to_string(tile->getShape()) + ",";
+    }
+    // remove the last comma from the string
+    hand = hand.substr(0, hand.size() - 1);
+    return hand;
 }
