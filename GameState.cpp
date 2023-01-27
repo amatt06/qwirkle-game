@@ -33,9 +33,10 @@ void GameState::save(std::string filename)
 
         /* UNCOMMENT TO CONTINUE BOARD IMPLEMENTATION */
 
-        // // Write board information
-        // file << gameBoard.getHeight() << "," << gameBoard.getWidth() << std::endl;
-        // file << gameBoard.getState() << std::endl;
+        // Write board information
+        file << gameBoard.getHeight() << "," << gameBoard.getWidth() << std::endl;
+
+        file << gameBoard.getState() << std::endl;
 
         // // Write tile bag contents
         // file << tiles.getContents() << std::endl;
