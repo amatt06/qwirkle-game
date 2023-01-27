@@ -17,4 +17,10 @@ public:
     // Constructor for loading a board - may require changes
     // to suit loadGame() implementation
     GameBoard(vector<vector<Tile>> board);
+
+    // Return board height.
+    int getHeight();
+
+    // Return board width.
+    int getWidth();
 };

@@ -31,12 +31,14 @@ void GameState::save(std::string filename)
         file << player2.getScore() << std::endl;
         file << player2.getHand() << std::endl;
 
-        // Write board information
-        file << gameBoard.getHeight() << "," << gameBoard.getWidth() << std::endl;
-        file << gameBoard.getState() << std::endl;
+        /* UNCOMMENT TO CONTINUE BOARD IMPLEMENTATION */
 
-        // Write tile bag contents
-        file << tiles.getContents() << std::endl;
+        // // Write board information
+        // file << gameBoard.getHeight() << "," << gameBoard.getWidth() << std::endl;
+        // file << gameBoard.getState() << std::endl;
+
+        // // Write tile bag contents
+        // file << tiles.getContents() << std::endl;
 
         // Write current players name.
         file << currentPlayer.getName() << std::endl;
