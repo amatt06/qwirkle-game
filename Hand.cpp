@@ -8,7 +8,7 @@ Hand::Hand(TileBag *tileBag)
 {
     std::cout << "Dealing hand..." << std::endl;
     Node *node = tileBag->getHead();
-    for (int i = 0; i < HAND_SIZE; i++)
+    for (int i = 0; i < MAX_HAND_SIZE; i++)
     {
         if (node != nullptr)
         {

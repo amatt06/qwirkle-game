@@ -1,5 +1,6 @@
 
 #include "Node.h"
+#include "Tile.h"
 
 Node::Node(Tile *tile, Node *next)
 {

@@ -11,8 +11,9 @@ public:
     Hand(TileBag *tileBag);
     ~Hand();
 
+    static const int MAX_HAND_SIZE = 3;
+
 private:
-    const int HAND_SIZE = 3;
 };
 
 #endif // ASSIGN2_Hand_H

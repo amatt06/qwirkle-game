@@ -15,7 +15,7 @@ TileBag *TileBag::fillTileBag()
 
     std::cout << "Filling Tile Bag..." << std::endl;
 
-    for (int i = 0; i < BAGSIZE; i++)
+    for (int i = 0; i < TileBag::MAX_BAG_SIZE; i++)
     {
         Tile *newTile = new Tile();
         this->addTileToBag(newTile);
