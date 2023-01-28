@@ -18,6 +18,9 @@ public:
     // Constructor
     Tile(Colour colour, Shape shape);
 
+    Colour generateRandomisedColour();
+    Shape generateRandomisedShape();
+
     // Accessors
     Colour getColour();
     Shape getShape();

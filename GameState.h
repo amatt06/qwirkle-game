@@ -4,6 +4,7 @@
 #include <string>
 #include "Players.h"
 #include "GameBoard.h"
+#include "TileBag.h"
 
 #include <iostream>
 #include <fstream>
@@ -14,7 +15,7 @@ private:
     // Elements required to save or load a game
     Players players;
 
-    Tiles bag;
+    TileBag bag;
 
     GameBoard gameBoard;
 
@@ -31,12 +32,12 @@ public:
     }
 
     // Constructor for loadGame method
-    GameState(Players players, GameBoard gameBoard, Tiles bag);
+    GameState(Players players, GameBoard gameBoard, TileBag bag);
 
     // Setters
     void setPlayers(Players players);
 
-    void setBag(Tiles bag);
+    void setBag(TileBag bag);
 
     void setGameboard(GameBoard gameBoard);
 
@@ -45,7 +46,7 @@ public:
     // Getters
     Players *getPlayers();
 
-    Tiles *getBag();
+    TileBag *getBag();
 
     GameBoard *getGameboard();
 

@@ -15,18 +15,30 @@ public:
     void clearList();
 
     // Accessors
+    Node *getHead();
+    Node *getTail();
     int getSize();
+
+    // Mutators
+    void setHead(Node *head);
+    void setTail(Node *tail);
+    void setSize(int size);
 
     // Functions to add/remove tiles.
 
-    // Add a tile to the list.
+    // Add a tile to the back of a list.
     void addTileToBack(Tile *tile);
+
+    // Remove a tile from player hand and replace it with a new tile.
+    void replaceTile(Tile *tileToReplace, LinkedList *tileBag);
+
+    // Remove a number of nodes from the front of the list.
+    void removeNodesFromFront(int numToRemove);
 
     // Get the front tile from the list.
     Tile *drawTile();
 
-    // Remove a tile from player hand.
-    Tile *removeTile(Tile *tile);
+    void printList();
 
 private:
     Node *head;

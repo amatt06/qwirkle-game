@@ -1,6 +1,7 @@
 #include "LinkedList.h"
 #include "Menu.h"
 #include "GameState.h"
+#include "TileBag.h"
 
 #include <iostream>
 #include <fstream>
@@ -20,6 +21,9 @@ void printCredits();
 
 int main(void)
 {
+    createNewGame();
+    std::cout << "Game created" << std::endl;
+
     // Initialize menu.
     //
     // TODO: Given C++ has no static classes, is there a better
@@ -27,11 +31,11 @@ int main(void)
     // to instantiating it?
     int choice = 0;
     Menu menu;
-    do
-    {
-        choice = menu.userSelection();
-        mainMenuOption(choice);
-    } while (true);
+    // do
+    // {
+    //     choice = menu.userSelection();
+    //     mainMenuOption(choice);
+    // } while (true);
 
     // Never actually reaches this
     // TODO: Either bring the code back into qwirkle.cpp
@@ -73,15 +77,20 @@ void mainMenuOption(int userSelection)
 // GameState createNewGame()
 void createNewGame()
 {
-    // TODO
+    // std::cout << "Starting a new game." << std::endl;
+    // std::string username;
+    // std::cout << "Select your username" << std::endl;
+    // std::cin >> username;
+    // std::cout << "Welcome, " << username << std::endl;
 
-    //
-    std::cout << "Starting a new game." << std::endl;
+    TileBag *tileBag = new TileBag();
+    tileBag->fillTileBag();
+    tileBag->printList();
 
-    std::string username;
-    std::cout << "Select your username" << std::endl;
-    std::cin >> username;
-    std::cout << "Welcome, " << username << std::endl;
+    // Create new player and deal their tiles
+    Player *playerOne = new Player("Jam", tileBag);
+    playerOne->getHand()->printList();
+    tileBag->removeNodesFromFront(playerOne->getHand()->getSize());
 }
 
 void printCredits()
