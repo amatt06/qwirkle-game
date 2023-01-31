@@ -25,5 +25,5 @@ public:
     int getWidth();
 
     // Return the state of the board as a vector of strings.
-    std::vector<std::string> getState();
+    std::string getState();
 };
