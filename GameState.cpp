@@ -36,8 +36,8 @@ void GameState::save(std::string filename)
 
         file << gameBoard.getState() << std::endl;
 
-        // // Write tile bag contents
-        // file << tiles.getContents() << std::endl;
+        // Write tile bag contents
+        file << tiles.getTiles() << std::endl;
 
         // Write current players name.
         file << currentPlayer.getName() << std::endl;
