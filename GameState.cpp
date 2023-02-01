@@ -31,8 +31,6 @@ void GameState::save(std::string filename)
         file << player2.getScore() << std::endl;
         file << player2.getHand() << std::endl;
 
-        /* UNCOMMENT TO CONTINUE BOARD IMPLEMENTATION */
-
         // Write board information
         file << gameBoard.getHeight() << "," << gameBoard.getWidth() << std::endl;
 
@@ -45,5 +43,7 @@ void GameState::save(std::string filename)
         file << currentPlayer.getName() << std::endl;
 
         file.close();
+
+        std::cout << "Game Saved Successfully" << std::endl;
     }
 }
