@@ -1,4 +1,5 @@
 #include "Tile.h"
+#include "TileCodes.h"
 
 #include <vector>
 #include <string>
@@ -12,7 +13,7 @@ class GameBoard
 private:
     // Each vector is a row, and the nested vector of TileBag
     // within is the existing columns and their values
-    std::vector<std::vector<Tile>> board{26, std::vector<Tile>{26, Tile()}};
+    std::vector<std::vector<Tile>> board{26, std::vector<Tile>{26, Tile(NO_COL, NO_SHAPE)}};
 
     // The alphabet, used to print the row letter
     std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -59,7 +60,7 @@ public:
 
     // Validate that tile can be placed there within the rules of the
     // game.
-    bool validateSetTile(int x, int y, Tile tile);
+    bool validateSetTile(int x, int y, Tile tile, bool firstTurn);
 
     // Gets a vecotr of tiles that share the same row as the x, y coords
     // given

@@ -10,7 +10,7 @@ class Hand : public LinkedList
 public:
     Hand(TileBag *tileBag);
     ~Hand();
-    const static int HAND_SIZE = 5;
+    const static int HAND_SIZE = 6;
 
 private:
 };
