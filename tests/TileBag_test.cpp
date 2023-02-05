@@ -35,16 +35,33 @@ TEST(TileBagTest, ReplaceTileSize)
     tileBag->fillTileBag();
     int tileBagSize = tileBag->getSize();
 
-    // Tile chosen at random
+    // Tile chosen at random to be replaced
     Tile *tileToReplace = tileBag->getTileAtIndex(TileBag::MAX_BAG_SIZE - 3);
+    Colour tileToReplaceColour = tileToReplace->getColour();
+    Shape tileToReplaceShape = tileToReplace->getShape();
 
-    // Put the old tile back in the tile bag (add to back of list)
+    // The tile at the end of the TileBag
+    Tile *tailTile = tileBag->getTail()->tile;
+    Colour tailTileColour = tailTile->getColour();
+    Shape tailTileShape = tailTile->getShape();
+
+    // Put the tile to be replaced in the tile bag (add to back of list)
     tileBag->addTileToBag(tileToReplace);
     ASSERT_TRUE(tileBag->getSize() == tileBagSize + 1);
+    // The tile to be replaced is now the tile tail tile
+    ASSERT_TRUE(tileBag->getTail()->tile->getColour() == tileToReplaceColour);
+    ASSERT_TRUE(tileBag->getTail()->tile->getShape() == tileToReplaceShape);
+
+    // The tile at the front of the list
+    Colour expectedNewTileColour = tileBag->getHead()->tile->getColour();
+    Shape expectedNewTileShape = tileBag->getHead()->tile->getShape();
 
     // Draw a new tile from the tile bag (remove from front of list)
     Tile *newTile = tileBag->drawTile();
+
     ASSERT_TRUE(tileBag->getSize() == tileBagSize);
+    ASSERT_TRUE(newTile->getColour() == expectedNewTileColour);
+    ASSERT_TRUE(newTile->getShape() == expectedNewTileShape);
 }
 
 TEST(TileBagTest, ReplaceTileValue)

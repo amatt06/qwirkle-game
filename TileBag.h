@@ -17,6 +17,6 @@ public:
     // Remove a tile from player hand and replace it with a new tile.
     Tile *replaceTile(Tile *tileToReplace);
 
-    static const int MAX_BAG_SIZE = 10;
+    static const int MAX_BAG_SIZE = 25;
 };
 #endif // ASSIGN2_TILEBAG_H
