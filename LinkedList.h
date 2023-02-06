@@ -48,6 +48,8 @@ public:
 
     Node *getNode(Tile tile);
 
+    int countOfNodes(Node *head);
+
 private:
     Node *head;
     Node *tail;
