@@ -107,7 +107,7 @@ void LinkedList::removeItemFromList(Node *nodeToDelete)
 }
 
 // count total nodes
-int LinkedList::countOfNodes(struct Node *head)
+int countOfNodes(struct Node *head)
 {
     int count = 0;
     while (head != NULL)
