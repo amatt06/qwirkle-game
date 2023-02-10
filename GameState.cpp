@@ -18,8 +18,8 @@ GameState::GameState()
     TileBag *tileBag = new TileBag();
     tileBag->fillTileBag();
 
-    Player *player1 = new Player("", tileBag);
-    Player *player2 = new Player("", tileBag);
+    Player *player1 = new Player("player1", tileBag);
+    Player *player2 = new Player("player2", tileBag);
 
     GameBoard *gameBoard = new GameBoard();
 
