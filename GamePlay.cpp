@@ -144,9 +144,11 @@ bool GamePlay::gamePlayOption()
             // The input before the space
             std::string cmd = userInput.substr(0, pos);
 
-            // Valid commands: "place XX at XX (length=14),
+            // Valid commands:
+            // "place XX at XX (length=14),
+            // "place XX at XXX (length=15),
             // "replace XX" (length=10), "save <filename>" (min_length=7)
-            if (cmd == "place" && length == 14)
+            if (cmd == "place" && (length == 14 || length == 15))
             {
                 std::string tile = userInput.substr(pos + 1, 2);
                 std::string location = userInput.substr(pos + 7);
@@ -155,6 +157,10 @@ bool GamePlay::gamePlayOption()
                 std::string x = location.substr(0, 1);
                 std::string y = location.substr(1, 1);
                 std::string userSelectionTileColour = tile.substr(0, 1);
+                if (location.length() == 3)
+                {
+                    y = location.substr(1, 2);
+                }
                 std::string userSelectionTileShape = tile.substr(1, 1);
 
                 Colour colour = Tile::convertToColour(userSelectionTileColour);
@@ -164,7 +170,7 @@ bool GamePlay::gamePlayOption()
                 if (this->gameState->getPlayers()->getCurrentPlayer()->getHandPtr()->isTileInList(tempTile))
                 {
                     // TODO: fix x and y coordinates for sending to the board
-                    Tile tileToPlace = this->gameState->getPlayers()->getCurrentPlayer()->getHandPtr()->getHead()->getTileByAttributes(colour, shape);
+                    Tile tilePtr = this->gameState->getPlayers()->getCurrentPlayer()->getHandPtr()->getHead()->getTileByAttributes(colour, shape);
                     char xChar = x[0];
                     int xCoordinate = GameBoard::alphabetToNumber(xChar);
                     int yCoordinate = stoi(y) - 1;
@@ -173,8 +179,8 @@ bool GamePlay::gamePlayOption()
                         this->firstTurn = false;
                         int score = this->gameState->getGameBoard()->setTile(xCoordinate, yCoordinate, tilePtr);
                         this->gameState->getPlayers()->getCurrentPlayer()->addScore(score);
-                        
-                        Node *nodeToRemove = this->gameState->getPlayers()->getCurrentPlayer()->getHandPtr()->getNode(tileToPlace);
+
+                        Node *nodeToRemove = this->gameState->getPlayers()->getCurrentPlayer()->getHandPtr()->getNode(tilePtr);
                         this->gameState->getPlayers()->getCurrentPlayer()->getHandPtr()->removeItemFromList(nodeToRemove);
                         this->gameState->getPlayers()->getCurrentPlayer()->getHandPtr()->addTileToBack(this->gameState->getTileBag()->drawTile());
                     }
