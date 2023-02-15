@@ -40,6 +40,7 @@ add_executable(
   tests/Player_test.cpp
   tests/Players_test.cpp
   tests/TileBag_test.cpp
+  tests/LinkedList_test.cpp
   tests/SaveLoad_test.cpp
   tests/GamePlay_test.cpp
 )
