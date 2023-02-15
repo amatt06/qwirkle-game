@@ -36,19 +36,17 @@ void GameState::save(std::string filename)
 
     if (!file)
     {
-        std::cout << "Error: File Not Found." << std::endl;
+        std::cout << "Error: File Not CreatedF." << std::endl;
     }
     else
     {
-        // Write player 1 information
-        file << player1->getName() << std::endl;
-        file << player1->getScore() << std::endl;
-        file << player1->getHand() << std::endl;
+        file << players->getPlayer(0)->getName() << std::endl;
+        file << players->getPlayer(0)->getScore() << std::endl;
+        file << players->getPlayer(0)->getHand() << std::endl;
 
-        // Write player 2 information
-        file << player2->getName() << std::endl;
-        file << player2->getScore() << std::endl;
-        file << player2->getHand() << std::endl;
+        file << players->getPlayer(1)->getName() << std::endl;
+        file << players->getPlayer(1)->getScore() << std::endl;
+        file << players->getPlayer(1)->getHand() << std::endl;
 
         // Write board information
         file << gameBoard->getHeight() << "," << gameBoard->getWidth() << std::endl;
